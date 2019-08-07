@@ -49,6 +49,8 @@ func Execute() error {
 
 func init() {
 	cobra.OnInitialize(initConfig)
+
+	// Attach flags to the baseCmd
 	baseCmd.PersistentFlags().StringVar(&ConfigFilePath, "config", "", "config file (default is $HOME/.basecommand.yaml)")
 	baseCmd.PersistentFlags().BoolVarP(&isVerbose, "verbose", "v", false, "Run in verbose mode")
 
