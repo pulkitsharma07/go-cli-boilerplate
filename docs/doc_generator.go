@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/pulkitsharma07/go-cli-boilerplate/cmds"
+	"github.com/pulkitsharma07/go-cli-boilerplate/cmd"
 	"github.com/spf13/cobra/doc"
 )
 

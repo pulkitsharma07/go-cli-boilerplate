@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/pulkitsharma07/go-cli-boilerplate/cmds"
+	"github.com/pulkitsharma07/go-cli-boilerplate/cmd"
 	"os"
 )
 

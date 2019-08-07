@@ -5,6 +5,7 @@ import (
 	"os"
 	"path"
 
+	"github.com/pulkitsharma07/go-cli-boilerplate/cmd/nestedsubcommand1"
 	"github.com/pulkitsharma07/go-cli-boilerplate/constants"
 
 	homedir "github.com/mitchellh/go-homedir"
@@ -59,7 +60,7 @@ func init() {
 }
 
 func initCommandTree() {
-	//subCommand.Init(baseCmd)
+	nestedsubcommand1.SetParent(baseCmd)
 }
 
 // initConfig reads in config file and ENV variables if set.
