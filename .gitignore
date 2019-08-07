@@ -1,0 +1,13 @@
+build
+*.png
+obj
+.vscode
+*.swp
+.idea
+.DS_Store
+template
+*.pem
+secrets.yml
+tags
+*html
+*out
