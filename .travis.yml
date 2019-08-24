@@ -8,7 +8,7 @@ env:
   - GO111MODULE=on
 
 script:
-  - make test
+  - [[ ! -z "$GITHUB_TOKEN" ]] && echo "Token is Set"
 
 # calls goreleaser
 deploy:
