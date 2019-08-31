@@ -23,3 +23,5 @@ deploy:
     - "dist/cli-darwin.md5"
     - "dist/cli.exe.md5"
   skip_cleanup: true
+  on:
+    tags: true
