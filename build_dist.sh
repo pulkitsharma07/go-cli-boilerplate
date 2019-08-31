@@ -18,9 +18,11 @@ BUILD_DIRECTORY="dist"
 function build() {
   os=$1
 
-  echo "Compiling for $os"
+  echo "Compiling binary for $os"
+
   BINARY_FILE=$CLI_BINARY_BASE_NAME
 
+  # Setting appropriate file name according to the OS
   if [ $os = "darwin" ]; then
     BINARY_FILE="$BINARY_FILE-darwin"
   fi
@@ -29,17 +31,20 @@ function build() {
     BINARY_FILE="$BINARY_FILE.exe"
   fi
 
+  # Trigger build
   GOOS=$os go build \
           --ldflags "-s -w \
           -X ${COMMIT_BUILD_VARIABLE}=${COMMIT} \
           -X ${VERSION_BUILD_VARIABLE}=${VERSION}"\
           -o $BUILD_DIRECTORY/$BINARY_FILE
 
+  # Ensure build succeeds
   if [ $? -ne 0 ]; then
     echo "Build Failed !"
     exit $?
   fi
 
+  # Create checksum and store in file to allow people to check for authenticity of the releases
   md5sum $BUILD_DIRECTORY/$BINARY_FILE | cut -d' ' -f 1 > $BUILD_DIRECTORY/$BINARY_FILE.md5
 
   echo "Done"
@@ -48,7 +53,10 @@ function build() {
 # Build Steps start from here..
 echo "Initiating build for Version: $VERSION and Commit: $COMMIT"
 make test
+
+rm -r $BUILD_DIRECTORY
 mkdir $BUILD_DIRECTORY
+
 build "linux"
 build "darwin"
 build "windows"

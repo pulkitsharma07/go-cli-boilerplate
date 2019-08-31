@@ -18,13 +18,13 @@ build:
 	docker build -t cli_builder .
 
 	# Create a container from that image
-	CONTAINER_NAME=cli_container_topson
+	$(eval CONTAINER_NAME="cli_container_topson")
 	# Remove if it already exists
-	docker rm $CONTAINER_NAME || true
-	docker create --name $CONTAINER_NAME cli_builder
+	docker rm $(CONTAINER_NAME) || true
+	docker create --name $(CONTAINER_NAME) cli_builder
 
 	# Extract the built binaries from the image to local disk
-	docker cp $CONTAINER_NAME:/go/cli/dist dist
+	docker cp $(CONTAINER_NAME):/go/cli/dist dist
 
 test:
 	@echo "Running tests.."
