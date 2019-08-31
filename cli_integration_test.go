@@ -19,6 +19,24 @@ func TestBaseCommand(t *testing.T) {
 	assert.Regexp(t, "basecommand", output, "Should display whatever is expected")
 }
 
+
+// Test: ./basecommand version
+func TestVersion(t *testing.T) {
+	test.Reset()
+
+        // Setting Version, Commit
+        // Will be injected in the binary during build time
+        cmd.Version="v0.0.0"
+        cmd.Commit="some_random_id"
+
+	output, err := test.RunCLI(cmd.Command(), "version")
+
+	assert.Nil(t, err, "there should be no error for the base command")
+
+	// Modify the regex, add more assertions as expected.
+        assert.Regexp(t, "Version:" + cmd.Version + "\tBuild:" + cmd.Commit, output, "Should print DOGS...")
+}
+
 // Test: ./basecommand subcommand1
 func TestSubCommand1(t *testing.T) {
 	test.Reset()

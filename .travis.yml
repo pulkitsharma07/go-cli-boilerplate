@@ -9,10 +9,6 @@ env:
 services:
   - docker
 
-if: tag IS present
-  script:
-    - make build
+script:
+  - ./travis_runner_script.sh
 
-if: tag IS blank
-  script:
-    - make test
