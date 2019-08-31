@@ -15,6 +15,11 @@ script:
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: "dist/cli"
+  file:
+    - "dist/cli"
+    - "dist/cli-darwin"
+    - "dist/cli.exe"
+    - "dist/cli.md5"
+    - "dist/cli-darwin.md5"
+    - "dist/cli.exe.md5"
   skip_cleanup: true
-  draft: true
