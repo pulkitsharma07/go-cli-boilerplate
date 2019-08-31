@@ -1,4 +1,3 @@
-# .travis.yml
 language: go
 
 go:
@@ -7,14 +6,13 @@ go:
 env:
   - GO111MODULE=on
 
-script:
-  - [[ ! -z "$GITHUB_TOKEN" ]] && echo "Token is Set"
+services:
+  - docker
 
-# calls goreleaser
-deploy:
-- provider: script
-  skip_cleanup: true
-  script: curl -sL https://git.io/goreleaser | bash
-  on:
-    tags: true
-    condition: $TRAVIS_OS_NAME = linux
+if: tag IS present
+  script:
+    - make build
+
+if: tag IS blank
+  script:
+    - make test
