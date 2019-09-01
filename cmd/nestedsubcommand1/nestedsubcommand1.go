@@ -7,7 +7,7 @@ import (
 var nestedSubCommand1 = &cobra.Command{
 	Use:   "nestedsubcommand1",
 	Short: "Short description for your nestedsubcommand1",
-	Long:  `this command does not have any implementation of its own`,
+	Long:  `Sample command to show a command which does not have a implementation of its own`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cmd.Help()
 		return nil

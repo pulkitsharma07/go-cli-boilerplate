@@ -7,7 +7,8 @@ Sample repository which can serve as an entrypoint in creating CLI interfaces.
 ### Built using Cobra and Viper.
 
 ## Features
+* Unit and Integration test structure for the CLI
 * Improved directory structure for commands
-* Integration tests for the CLI
 * Docker based build pipeline
 * Travis CI based release workflow
+* Makefile for common tasks (generating documentation, building, etc)

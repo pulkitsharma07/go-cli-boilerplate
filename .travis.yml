@@ -3,6 +3,9 @@ language: go
 go:
   - "1.12"
 
+before_install:
+  - go get github.com/mattn/goveralls
+
 env:
   - GO111MODULE=on
 
@@ -10,7 +13,8 @@ services:
   - docker
 
 script:
-  - ./travis_runner_script.sh
+  - $GOPATH/bin/goveralls -service=travis-ci
+  - if [[ "$TRAVIS_TAG" != "" ]]; then make build; fi
 
 deploy:
   provider: releases

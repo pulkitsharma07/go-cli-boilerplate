@@ -9,7 +9,8 @@ import (
 var subCommand2Cmd = &cobra.Command{
 	Use:   "subcommand2",
 	Short: "Short description for your subcommand2",
-	Long:  `It prints DOGS DOGS DOGS`,
+	Long:  `.It prints whatever you want 3 times.`,
+        Args: cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return runSubCommand2(args, cmd.OutOrStdout())
 	},
@@ -22,6 +23,6 @@ func init() {
 }
 
 func runSubCommand2(args []string, out io.Writer) error {
-	fmt.Fprintf(out, "DOGS DOGS DOGS\n")
+	fmt.Fprintf(out, "%s %s %s\n", args[0], args[0], args[0])
 	return nil
 }
