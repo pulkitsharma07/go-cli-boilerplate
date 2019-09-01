@@ -8,7 +8,10 @@ import (
 
 // Variables initialized (injected) at build time.
 // Refer: build_dist.sh
+
+// Version specifies the git tag
 var Version string
+// Commit specifies the git commit
 var Commit string
 
 var versionCmd = &cobra.Command{
