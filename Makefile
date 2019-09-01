@@ -14,7 +14,7 @@ update_docs:
 	@cd docs && go run doc_generator.go
 
 build:
-	# Build docker image (the image will have the compiled binaries in it, refer the Dockerfile)
+	# Build docker image (the image will run tests and then compiles the binaries, refer the Dockerfile)
 	docker build -t cli_builder .
 
 	# Create a container from that image
