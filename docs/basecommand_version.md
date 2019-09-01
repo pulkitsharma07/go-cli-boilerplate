@@ -1,19 +1,19 @@
-## basecommand subcommand1
+## basecommand version
 
-Short description for your subcommand1
+Print the CLI version
 
 ### Synopsis
 
-It prints CATS CATS CATS
+Print the CLI version
 
 ```
-basecommand subcommand1 [flags]
+basecommand version [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help   help for subcommand1
+  -h, --help   help for version
 ```
 
 ### Options inherited from parent commands
