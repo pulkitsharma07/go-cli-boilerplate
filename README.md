@@ -10,6 +10,6 @@ Sample repository which can serve as an entrypoint in creating CLI interfaces.
 ## Features
 * Unit and Integration test structure for the CLI
 * Improved directory structure for commands
-* Docker based build pipeline
+* Docker based cross-platform build pipeline
 * Travis CI based release workflow
 * Makefile for common tasks (generating documentation, building, etc)
